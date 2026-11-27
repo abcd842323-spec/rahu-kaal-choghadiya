@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Rahu Kaal + Choghadiya Today — राहु काल और चौघड़िया | By Mahesh Kumar</title>
+<meta name="description" content="Daily Rahu Kaal, day and night Choghadiya timings based on sunrise for your city. Hindi + English. राहु काल, शुभ-अशुभ चौघड़िया, सूर्योदय के अनुसार।" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fdf8ef; --surface:#ffffff; --surface2:#fff6e3; --ink:#2b1a12; --muted:#7a5c4d; --line:#ecdcc3;
+    --maroon:#7c1d12; --maroon-bg:#fdf0ec; --saffron:#d96c06; --saffron-bg:#fef3d9;
+    --good:#177245; --good-bg:#e6f4ea; --best:#0b6e4f; --best-bg:#d9f2e3;
+    --bad:#b42318; --bad-bg:#fdecea; --neutral:#8a6d00; --neutral-bg:#fdf6d8;
+    --accent:#d96c06; --shadow:0 6px 24px rgba(124,29,18,.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#171009; --surface:#231a12; --surface2:#2b2014; --ink:#f5e9d6; --muted:#c9ab8e; --line:#453322;
+      --maroon:#ff9d8a; --maroon-bg:#3a1d16; --saffron:#ffb25e; --saffron-bg:#382a10;
+      --good:#6fd598; --good-bg:#173326; --best:#7fe7bb; --best-bg:#14382a;
+      --bad:#ff9d94; --bad-bg:#3d1a16; --neutral:#ecd27a; --neutral-bg:#38300f;
+      --accent:#ffb25e; --shadow:0 6px 24px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Mukta",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}
+  button,select,input{font:inherit;min-height:44px}
+  button{cursor:pointer}
+  .wrap{max-width:1080px;margin:0 auto;padding:18px 16px 56px}
+  h1,h2,h3{font-family:"Rozha One",serif;font-weight:400;line-height:1.2;margin:0}
+  /* header */
+  .top{border-top:6px solid var(--maroon);background:var(--surface);border-bottom:1px solid var(--line)}
+  .top-in{max-width:1080px;margin:0 auto;padding:22px 16px 18px}
+  .kicker{font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--saffron)}
+  h1{font-size:clamp(1.9rem,5.5vw,3rem);margin-top:4px}
+  h1 .hi{color:var(--maroon)}
+  .sub{color:var(--muted);max-width:640px;margin:8px 0 0;font-size:1.02rem}
+  /* controls */
+  .controls{display:grid;grid-template-columns:1fr;gap:12px;margin:18px 0}
+  @media(min-width:760px){.controls{grid-template-columns:1.3fr 1fr auto}}
+  .field{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 14px;box-shadow:var(--shadow)}
+  .field label{display:block;font-size:.78rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+  .field input[type="text"],.field input[type="date"]{width:100%;border:0;background:transparent;color:var(--ink);font-size:1.05rem;font-weight:600;outline:none;padding:2px 0}
+  .city-wrap{position:relative}
+  .city-list{position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);max-height:280px;overflow:auto;z-index:30;display:none}
+  .city-list.open{display:block}
+  .city-list button{display:flex;width:100%;justify-content:space-between;gap:10px;background:none;border:0;border-bottom:1px solid var(--line);padding:11px 14px;text-align:left;color:var(--ink);min-height:44px}
+  .city-list button:last-child{border-bottom:0}
+  .city-list button:hover,.city-list button:focus{background:var(--surface2)}
+  .city-list small{color:var(--muted)}
+  .lang-toggle{display:flex;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);align-self:stretch}
+  .lang-toggle button{flex:1;border:0;background:transparent;padding:0 20px;font-weight:800;color:var(--muted)}
+  .lang-toggle button.active{background:var(--maroon);color:#fff}
+  .quick-dates{display:flex;gap:8px;flex-wrap:wrap;margin:-4px 0 16px}
+  .quick-dates button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 16px;font-weight:700;min-height:40px}
+  .quick-dates button.active{background:var(--saffron);border-color:var(--saffron);color:#fff}
+  /* summary cards */
+  .grid3{display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:820px){.grid3{grid-template-columns:1.15fr 1fr 1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+  .card h2{font-size:1.25rem}
+  .rahu-card{background:var(--maroon-bg);border-color:var(--maroon)}
+  .rahu-time{font-family:"Rozha One",serif;font-size:clamp(1.7rem,5vw,2.3rem);color:var(--maroon);margin:6px 0 2px;line-height:1.15}
+  .now-card{border-color:var(--saffron)}
+  .now-name{font-family:"Rozha One",serif;font-size:clamp(1.7rem,5vw,2.3rem);margin:6px 0 2px;line-height:1.15}
+  .sunrow{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .sunbox{flex:1;min-width:120px;background:var(--surface2);border-radius:12px;padding:10px 12px}
+  .sunbox b{display:block;font-size:1.15rem}
+  .sunbox span{font-size:.82rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+  .badge{display:inline-block;font-size:.78rem;font-weight:800;padding:3px 10px;border-radius:999px;vertical-align:middle}
+  .b-good{background:var(--good-bg);color:var(--good)} .b-best{background:var(--best-bg);color:var(--best)}
+  .b-bad{background:var(--bad-bg);color:var(--bad)} .b-neutral{background:var(--neutral-bg);color:var(--neutral)}
+  .b-rahu{background:var(--maroon);color:#fff}
+  .muted{color:var(--muted)} .small{font-size:.9rem}
+  .big-status{font-size:1.02rem}
+  /* manual sun edit */
+  .manual{margin-top:14px;background:var(--surface);border:1px dashed var(--line);border-radius:14px;padding:12px 16px}
+  .manual summary{font-weight:700;cursor:pointer;min-height:36px;display:flex;align-items:center}
+  .manual .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;align-items:end}
+  .manual label{font-size:.85rem;font-weight:700;color:var(--muted);display:block}
+  .manual input[type="time"]{border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);padding:6px 10px}
+  .btn{border:0;border-radius:10px;background:var(--maroon);color:#fff;font-weight:800;padding:8px 18px}
+  .btn.ghost{background:transparent;color:var(--maroon);border:1px solid var(--maroon)}
+  /* tables */
+  section{margin-top:30px}
+  .sec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .sec-head h2{font-size:clamp(1.45rem,4vw,1.9rem)}
+  .sec-head p{margin:0;color:var(--muted)}
+  .tbl-wrap{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+  table{width:100%;border-collapse:collapse}
+  th{ text-align:left;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding:12px 14px;background:var(--surface2);border-bottom:1px solid var(--line)}
+  td{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  tr.current td{background:var(--saffron-bg)}
+  tr.rahu-row td{background:var(--maroon-bg)}
+  .t-name{font-weight:800;font-size:1.06rem;white-space:nowrap}
+  .t-time{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .t-work{color:var(--muted);font-size:.94rem}
+  @media(max-width:640px){
+    .t-work{display:none}
+    td,th{padding:11px 10px}
+    .t-time{white-space:normal}
+  }
+  /* legend / info */
+  .legend{display:grid;grid-template-columns:1fr;gap:12px}
+  @media(min-width:760px){.legend{grid-template-columns:repeat(3,1fr)}}
+  .legend .card{padding:16px}
+  .legend h3{font-size:1.08rem;margin-bottom:6px}
+  .week td:first-child{font-weight:700}
+  .note{margin-top:26px;background:var(--surface2);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:.92rem;color:var(--muted)}
+  .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+  .links a{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;font-weight:700}
+  footer{margin-top:30px;color:var(--muted);font-size:.88rem;text-align:center}
+  .countdown{font-variant-numeric:tabular-nums;font-weight:800}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <div class="kicker" data-i="kicker">Daily Panchang Tool · दिन का पंचांग</div>
+    <h1><span data-i="title1">Rahu Kaal + Choghadiya</span> <span class="hi" data-i="title2">राहु काल + चौघड़िया</span></h1>
+    <p class="sub" data-i="subtitle">Sunrise-based good and bad hours for the day. Pick your city — timings are calculated from that city's sunrise and sunset.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- CONTROLS -->
+  <div class="controls">
+    <div class="field city-wrap">
+      <label for="cityInput" data-i="cityLabel">City / शहर — sunrise yahi se hoga</label>
+      <input type="text" id="cityInput" autocomplete="off" value="Delhi, India" />
+      <div class="city-list" id="cityList" role="listbox"></div>
+    </div>
+    <div class="field">
+      <label for="dateInput" data-i="dateLabel">Date / तारीख</label>
+      <input type="date" id="dateInput" />
+    </div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button id="langEn" class="active" type="button">English</button>
+      <button id="langHi" type="button">हिन्दी</button>
+    </div>
+  </div>
+  <div class="quick-dates">
+    <button type="button" data-offset="-1" data-i="yesterday">Yesterday · कल (बीता)</button>
+    <button type="button" data-offset="0" class="active" data-i="todayBtn">Today · आज</button>
+    <button type="button" data-offset="1" data-i="tomorrow">Tomorrow · कल (आने वाला)</button>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="grid3">
+    <div class="card rahu-card">
+      <h2><span data-i="rahuTitle">Rahu Kaal — Avoid</span> <span class="badge b-rahu" data-i="rahuBadge">INAUSPICIOUS</span></h2>
+      <div class="rahu-time" id="rahuTime">—</div>
+      <p class="big-status" id="rahuStatus">—</p>
+      <p class="small muted" data-i="rahuDesc" style="margin:6px 0 0">Do not start any new or important work in Rahu Kaal. Routine work already started can continue.</p>
+    </div>
+
+    <div class="card now-card">
+      <h2 data-i="nowTitle">Choghadiya Right Now</h2>
+      <div class="now-name" id="nowName">—</div>
+      <p class="big-status" id="nowDetail">—</p>
+      <p class="small" id="nextGood" style="margin:6px 0 0"></p>
+    </div>
+
+    <div class="card">
+      <h2 data-i="dayTitle">Day at a Glance</h2>
+      <p style="margin:6px 0 0"><b id="dayName">—</b> · <span id="dateLine">—</span></p>
+      <p class="small muted" id="tithiNote" style="margin:2px 0 0"></p>
+      <div class="sunrow">
+        <div class="sunbox"><span data-i="sunrise">Sunrise</span><b id="sunriseOut">—</b></div>
+        <div class="sunbox"><span data-i="sunset">Sunset</span><b id="sunsetOut">—</b></div>
+        <div class="sunbox"><span data-i="dayLength">Day length</span><b id="dayLenOut">—</b></div>
+      </div>
+      <div class="sunrow">
+        <div class="sunbox"><span data-i="abhijit">Abhijit Muhurat (approx)</span><b id="abhijitOut" style="font-size:1rem">—</b></div>
+      </div>
+    </div>
+  </div>
+
+  <details class="manual">
+    <summary data-i="manualTitle">Sunrise / sunset galat lag raha hai? Khud set karein</summary>
+    <div class="row">
+      <div><label data-i="sunrise">Sunrise</label><input type="time" id="manualSunrise"></div>
+      <div><label data-i="sunset">Sunset</label><input type="time" id="manualSunset"></div>
+      <button class="btn" type="button" id="applyManual" data-i="applyBtn">Apply</button>
+      <button class="btn ghost" type="button" id="resetManual" data-i="resetBtn">Auto (city se)</button>
+    </div>
+    <p class="small muted" data-i="manualNote" style="margin:8px 0 0">If your local panchang shows a slightly different sunrise, enter it here — all timings will recalculate from it.</p>
+  </details>
+
+  <!-- DAY CHOGHADIYA -->
+  <section>
+    <div class="sec-head">
+      <h2 data-i="dayChogTitle">Day Choghadiya — दिन के चौघड़िया</h2>
+      <p data-i="dayChogSub">Sunrise se sunset tak, 8 hisse</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th data-i="thTime">Time</th><th data-i="thChog">Choghadiya</th><th data-i="thNature">Nature</th><th data-i="thWork">Good for</th>
+        </tr></thead>
+        <tbody id="dayBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- NIGHT CHOGHADIYA -->
+  <section>
+    <div class="sec-head">
+      <h2 data-i="nightChogTitle">Night Choghadiya — रात के चौघड़िया</h2>
+      <p data-i="nightChogSub">Sunset se agle sunrise tak, 8 hisse</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th data-i="thTime">Time</th><th data-i="thChog">Choghadiya</th><th data-i="thNature">Nature</th><th data-i="thWork">Good for</th>
+        </tr></thead>
+        <tbody id="nightBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- WEEK RAHU KAAL -->
+  <section>
+    <div class="sec-head">
+      <h2 data-i="weekTitle">Rahu Kaal — Next 7 Days</h2>
+      <p id="weekSub"></p>
+    </div>
+    <div class="tbl-wrap">
+      <table class="week">
+        <thead><tr><th data-i="thDay">Day</th><th data-i="thDate">Date</th><th data-i="thRahu">Rahu Kaal</th><th data-i="sunrise">Sunrise</th></tr></thead>
+        <tbody id="weekBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- MEANINGS -->
+  <section>
+    <div class="sec-head"><h2 data-i="meanTitle">Har Choghadiya ka matlab</h2></div>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2 data-i="howTitle">Ye samay kaise banta hai?</h2></div>
+    <div class="card">
+      <p style="margin-top:0" data-i="how1"><b>Choghadiya:</b> Sunrise se sunset tak ke samay ko 8 barabar hisson me baanta jata hai — har hissa lagbhag 1.5 ghante ka hota hai. Raat ke liye sunset se agle sunrise tak ko 8 hisson me baanta jata hai. Har din (weekday) ka pehla Choghadiya alag hota hai, isliye poori table roz badalti hai.</p>
+      <p data-i="how2"><b>Rahu Kaal:</b> Din ke 8 hisson me se ek hissa Rahu Kaal hota hai — Somvar ko 2nd, Shukravar ko 4th, Shaniwar ko 3rd, Ravivar ko 8th, Mangalvar ko 7th, Budhvar ko 5th aur Guruvar ko 6th hissa. Is samay naya kaam shuru karna varjit mana jata hai.</p>
+      <p style="margin-bottom:0" data-i="how3"><b>Abhijit Muhurat:</b> Din ke beech (solar noon) ke aas-paas ka lagbhag 48 minute ka samay aam taur par shubh mana jata hai. Budhvar ko Abhijit varjit mana jata hai — is tool me Budhvar ko ye nahi dikhaya jata.</p>
+    </div>
+  </section>
+
+  <div class="note" data-i="note">Note: Sunrise–sunset yahan astronomical calculation se nikala gaya hai. Aapke sthaniya panchang se 2–5 minute ka antar ho sakta hai. Vivah, griha-pravesh jaise bade shubh karyon ke liye sthaniya panchang / pandit se pushti zaroor karein.</div>
+
+  <footer>Good Morning Kids · <span data-i="foot">Free Hindi + English Panchang Tools</span></footer>
+</div>
+
+<script>
+/* ============ DATA ============ */
+var CITIES = [
+ {n:"Delhi", hi:"दिल्ली", c:"India", lat:28.6139, lon:77.2090, tz:5.5},
+ {n:"Mumbai", hi:"मुंबई", c:"India", lat:19.0760, lon:72.8777, tz:5.5},
+ {n:"Kolkata", hi:"कोलकाता", c:"India", lat:22.5726, lon:88.3639, tz:5.5},
+ {n:"Chennai", hi:"चेन्नई", c:"India", lat:13.0827, lon:80.2707, tz:5.5},
+ {n:"Bengaluru", hi:"बेंगलुरु", c:"India", lat:12.9716, lon:77.5946, tz:5.5},
+ {n:"Hyderabad", hi:"हैदराबाद", c:"India", lat:17.3850, lon:78.4867, tz:5.5},
+ {n:"Ahmedabad", hi:"अहमदाबाद", c:"India", lat:23.0225, lon:72.5714, tz:5.5},
+ {n:"Pune", hi:"पुणे", c:"India", lat:18.5204, lon:73.8567, tz:5.5},
+ {n:"Jaipur", hi:"जयपुर", c:"India", lat:26.9124, lon:75.7873, tz:5.5},
+ {n:"Lucknow", hi:"लखनऊ", c:"India", lat:26.8467, lon:80.9462, tz:5.5},
+ {n:"Varanasi", hi:"वाराणसी", c:"India", lat:25.3176, lon:82.9739, tz:5.5},
+ {n:"Patna", hi:"पटना", c:"India", lat:25.5941, lon:85.1376, tz:5.5},
+ {n:"Bhopal", hi:"भोपाल", c:"India", lat:23.2599, lon:77.4126, tz:5.5},
+ {n:"Indore", hi:"इंदौर", c:"India", lat:22.7196, lon:75.8577, tz:5.5},
+ {n:"Surat", hi:"सूरत", c:"India", lat:21.1702, lon:72.8311, tz:5.5},
+ {n:"Kanpur", hi:"कानपुर", c:"India", lat:26.4499, lon:80.3319, tz:5.5},
+ {n:"Nagpur", hi:"नागपुर", c:"India", lat:21.1458, lon:79.0882, tz:5.5},
+ {n:"Ayodhya (Faizabad)", hi:"अयोध्या", c:"India", lat:26.7922, lon:82.1998, tz:5.5},
+ {n:"Robertsganj, Sonbhadra", hi:"रॉबर्ट्सगंज, सोनभद्र", c:"India", lat:24.6896, lon:83.0676, tz:5.5},
+ {n:"Gorakhpur", hi:"गोरखपुर", c:"India", lat:26.7606, lon:83.3732, tz:5.5},
+ {n:"Agra", hi:"आगरा", c:"India", lat:27.1767, lon:78.0081, tz:5.5},
+ {n:"Kochi", hi:"कोच्चि", c:"India", lat:9.9312, lon:76.2673, tz:5.5},
+ {n:"Chandigarh", hi:"चंडीगढ़", c:"India", lat:30.7333, lon:76.7794, tz:5.5},
+ {n:"Guwahati", hi:"गुवाहाटी", c:"India", lat:26.1445, lon:91.7362, tz:5.5},
+ {n:"Ujjain", hi:"उज्जैन", c:"India", lat:23.1765, lon:75.7885, tz:5.5},
+ {n:"Haridwar", hi:"हरिद्वार", c:"India", lat:29.9457, lon:78.1642, tz:5.5},
+ {n:"Kathmandu", hi:"काठमांडू", c:"Nepal", lat:27.7103, lon:85.3222, tz:5.75},
+ {n:"Dhaka", hi:"ढाका", c:"Bangladesh", lat:23.8103, lon:90.4125, tz:6},
+ {n:"Karachi", hi:"कराची", c:"Pakistan", lat:24.8607, lon:67.0011, tz:5},
+ {n:"Lahore", hi:"लाहौर", c:"Pakistan", lat:31.5204, lon:74.3587, tz:5},
+ {n:"Dubai", hi:"दुबई", c:"UAE", lat:25.2048, lon:55.2708, tz:4},
+ {n:"Singapore", hi:"सिंगापुर", c:"Singapore", lat:1.3521, lon:103.8198, tz:8},
+ {n:"Kuala Lumpur", hi:"कुआलालंपुर", c:"Malaysia", lat:3.1390, lon:101.6869, tz:8},
+ {n:"Jakarta", hi:"जकार्ता", c:"Indonesia", lat:-6.2088, lon:106.8456, tz:7},
+ {n:"London", hi:"लंदन", c:"UK", lat:51.5074, lon:-0.1278, tz:0},
+ {n:"New York", hi:"न्यूयॉर्क", c:"USA", lat:40.7128, lon:-74.0060, tz:-5},
+ {n:"Toronto", hi:"टोरंटो", c:"Canada", lat:43.6532, lon:-79.3832, tz:-5},
+ {n:"Sydney", hi:"सिडनी", c:"Australia", lat:-33.8688, lon:151.2093, tz:11}
+];
+
+var DAY_TABLE = {
+ 0:["Udveg","Char","Labh","Amrit","Kaal","Shubh","Rog","Udveg"],
+ 1:["Amrit","Kaal","Shubh","Rog","Udveg","Char","Labh","Amrit"],
+ 2:["Rog","Udveg","Char","Labh","Amrit","Kaal","Shubh","Rog"],
+ 3:["Labh","Amrit","Kaal","Shubh","Rog","Udveg","Char","Labh"],
+ 4:["Shubh","Rog","Udveg","Char","Labh","Amrit","Kaal","Shubh"],
+ 5:["Char","Labh","Amrit","Kaal","Shubh","Rog","Udveg","Char"],
+ 6:["Kaal","Shubh","Rog","Udveg","Char","Labh","Amrit","Kaal"]
+};
+var NIGHT_TABLE = {
+ 0:["Shubh","Amrit","Char","Rog","Kaal","Labh","Udveg","Shubh"],
+ 1:["Char","Rog","Kaal","Labh","Udveg","Shubh","Amrit","Char"],
+ 2:["Kaal","Labh","Udveg","Shubh","Amrit","Char","Rog","Kaal"],
+ 3:["Udveg","Shubh","Amrit","Char","Rog","Kaal","Labh","Udveg"],
+ 4:["Amrit","Char","Rog","Kaal","Labh","Udveg","Shubh","Amrit"],
+ 5:["Rog","Kaal","Labh","Udveg","Shubh","Amrit","Char","Rog"],
+ 6:["Labh","Udveg","Shubh","Amrit","Char","Rog","Kaal","Labh"]
+};
+var RAHU_SEG = {0:8, 1:2, 2:7, 3:5, 4:6, 5:4, 6:3}; /* 1-based segment by weekday (0=Sun) */
+
+var CHOG = {
+ Amrit:{hi:"अमृत", nature:"best", en:"Best for every important work — marriage, puja, business, joining a job.", hiWork:"सभी शुभ कार्यों के लिए सर्वोत्तम — विवाह, पूजा, व्यापार, नौकरी शुरू करना।"},
+ Shubh:{hi:"शुभ", nature:"good", en:"Good for marriage, puja, griha pravesh and starting new work.", hiWork:"विवाह, पूजा, गृह प्रवेश और नया काम शुरू करने के लिए शुभ।"},
+ Labh:{hi:"लाभ", nature:"good", en:"Good for business, buying-selling, learning and profit work.", hiWork:"व्यापार, खरीद-बिक्री, पढ़ाई और लाभ के काम के लिए अच्छा।"},
+ Char:{hi:"चर (चल)", nature:"neutral", en:"Good for travel, vehicles and work that involves movement.", hiWork:"यात्रा, वाहन और चलने-फिरने वाले काम के लिए अच्छा।"},
+ Udveg:{hi:"उद्वेग", nature:"bad", en:"Avoid important work. Obstacles possible, especially in government work.", hiWork:"महत्वपूर्ण काम टालें। बाधा आ सकती है, खासकर सरकारी काम में।"},
+ Kaal:{hi:"काल", nature:"bad", en:"Avoid starting new work, lending money or making big promises.", hiWork:"नया काम शुरू करना, उधार देना या बड़ा वादा करने से बचें।"},
+ Rog:{hi:"रोग", nature:"bad", en:"Avoid disputes and major health decisions. Stay calm.", hiWork:"झगड़ा-विवाद और इलाज के बड़े फैसले टालें। शांत रहें।"}
+};
+var NATURE_LABEL = {
+ en:{best:"BEST · सर्वोत्तम", good:"GOOD · शुभ", neutral:"OK · सामान्य", bad:"AVOID · अशुभ"},
+ hi:{best:"सर्वोत्तम", good:"शुभ", neutral:"सामान्य", bad:"अशुभ — टालें"}
+};
+var WEEKDAYS = {
+ en:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+ hi:["रविवार","सोमवार","मंगलवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"]
+};
+var MONTHS = {
+ en:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+ hi:["जनवरी","फ़रवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"]
+};
+
+var I18N = {
+ en:{
+  kicker:"Daily Panchang Tool · दिन का पंचांग", title1:"Rahu Kaal + Choghadiya", title2:"राहु काल + चौघड़िया",
+  subtitle:"Sunrise-based good and bad hours for the day. Pick your city — timings are calculated from that city's sunrise and sunset.",
+  cityLabel:"City / शहर — sunrise from here", dateLabel:"Date / तारीख",
+  yesterday:"Yesterday", todayBtn:"Today · आज", tomorrow:"Tomorrow",
+  rahuTitle:"Rahu Kaal — Avoid", rahuBadge:"INAUSPICIOUS",
+  rahuDesc:"Do not start any new or important work in Rahu Kaal. Routine work already started can continue.",
+  nowTitle:"Choghadiya Right Now", dayTitle:"Day at a Glance",
+  sunrise:"Sunrise", sunset:"Sunset", dayLength:"Day length", abhijit:"Abhijit Muhurat (approx)",
+  manualTitle:"Sunrise / sunset looks off? Set it yourself",
+  applyBtn:"Apply", resetBtn:"Auto (from city)",
+  manualNote:"If your local panchang shows a slightly different sunrise, enter it here — all timings will recalculate from it.",
+  dayChogTitle:"Day Choghadiya", dayChogSub:"Sunrise to sunset, divided into 8 parts",
+  nightChogTitle:"Night Choghadiya", nightChogSub:"Sunset to next sunrise, divided into 8 parts",
+  thTime:"Time", thChog:"Choghadiya", thNature:"Nature", thWork:"Good for",
+  weekTitle:"Rahu Kaal — Next 7 Days", thDay:"Day", thDate:"Date", thRahu:"Rahu Kaal",
+  meanTitle:"What each Choghadiya means",
+  howTitle:"How are these timings calculated?",
+  how1:"<b>Choghadiya:</b> The time from sunrise to sunset is divided into 8 equal parts — each part is about 1.5 hours. Night is divided the same way, from sunset to the next sunrise. The first Choghadiya changes with the weekday, so the whole table changes every day.",
+  how2:"<b>Rahu Kaal:</b> One of the 8 day-parts is Rahu Kaal — Monday the 2nd, Friday the 4th, Saturday the 3rd, Sunday the 8th, Tuesday the 7th, Wednesday the 5th and Thursday the 6th part. Starting new work in this period is traditionally avoided.",
+  how3:"<b>Abhijit Muhurat:</b> About 48 minutes around solar noon (mid-day) is generally considered auspicious. It is traditionally avoided on Wednesday, so this tool does not show it on Wednesdays.",
+  note:"Note: Sunrise–sunset here is calculated astronomically and may differ by 2–5 minutes from your local panchang. For big occasions like marriage or griha-pravesh, please confirm with a local panchang / pandit.",
+  foot:"Free Hindi + English Panchang Tools",
+  rahuNow:"Rahu Kaal is going on right now — avoid starting new work.", rahuLater:"Rahu Kaal comes later today.", rahuDone:"Rahu Kaal for today is over.", rahuOnDay:"for this day",
+  endsIn:"ends in", startsIn:"starts in", left:"left",
+  nowNotToday:"You are viewing another date. Open Today to see the live Choghadiya.",
+  nextGoodPrefix:"Next good Choghadiya: ",
+  afterGoodPrefix:"After this, next good Choghadiya: ",
+  curGoodNote:"This is a good time — aaj ke liye yahi best window hai.",
+  daySegment:"Day", nightSegment:"Night",
+  weekSubPrefix:"in"
+ },
+ hi:{
+  kicker:"रोज़ का पंचांग टूल · Daily Panchang", title1:"राहु काल + चौघड़िया", title2:"Rahu Kaal + Choghadiya",
+  subtitle:"सूर्योदय के आधार पर दिन के शुभ और अशुभ घंटे। अपना शहर चुनें — सारे समय उसी शहर के सूर्योदय–सूर्यास्त से बनेंगे।",
+  cityLabel:"शहर / City — सूर्योदय यहीं से होगा", dateLabel:"तारीख / Date",
+  yesterday:"कल (बीता हुआ)", todayBtn:"आज · Today", tomorrow:"कल (आने वाला)",
+  rahuTitle:"राहु काल — बचें", rahuBadge:"अशुभ समय",
+  rahuDesc:"राहु काल में कोई नया या महत्वपूर्ण काम शुरू न करें। पहले से चल रहा रोज़ का काम जारी रह सकता है।",
+  nowTitle:"अभी का चौघड़िया", dayTitle:"दिन एक नज़र में",
+  sunrise:"सूर्योदय", sunset:"सूर्यास्त", dayLength:"दिन की लंबाई", abhijit:"अभिजीत मुहूर्त (लगभग)",
+  manualTitle:"सूर्योदय / सूर्यास्त गलत लग रहा है? खुद सेट करें",
+  applyBtn:"लागू करें", resetBtn:"ऑटो (शहर से)",
+  manualNote:"अगर आपके स्थानीय पंचांग में सूर्योदय थोड़ा अलग है, तो यहाँ डालें — सारे समय उसी से दोबारा बन जाएँगे।",
+  dayChogTitle:"दिन के चौघड़िया", dayChogSub:"सूर्योदय से सूर्यास्त तक, 8 हिस्से",
+  nightChogTitle:"रात के चौघड़िया", nightChogSub:"सूर्यास्त से अगले सूर्योदय तक, 8 हिस्से",
+  thTime:"समय", thChog:"चौघड़िया", thNature:"प्रकृति", thWork:"किस काम के लिए",
+  weekTitle:"राहु काल — अगले 7 दिन", thDay:"दिन", thDate:"तारीख", thRahu:"राहु काल",
+  meanTitle:"हर चौघड़िया का मतलब",
+  howTitle:"ये समय कैसे बनता है?",
+  how1:"<b>चौघड़िया:</b> सूर्योदय से सूर्यास्त तक के समय को 8 बराबर हिस्सों में बाँटा जाता है — हर हिस्सा लगभग 1.5 घंटे का होता है। रात के लिए सूर्यास्त से अगले सूर्योदय तक को 8 हिस्सों में बाँटा जाता है। हर वार का पहला चौघड़िया अलग होता है, इसलिए पूरी तालिका रोज़ बदलती है।",
+  how2:"<b>राहु काल:</b> दिन के 8 हिस्सों में से एक हिस्सा राहु काल होता है — सोमवार को 2nd, शुक्रवार को 4th, शनिवार को 3rd, रविवार को 8th, मंगलवार को 7th, बुधवार को 5th और गुरुवार को 6th हिस्सा। इस समय नया काम शुरू करना वर्जित माना जाता है।",
+  how3:"<b>अभिजीत मुहूर्त:</b> दिन के बीच (मध्याह्न) के आस-पास का लगभग 48 मिनट का समय आमतौर पर शुभ माना जाता है। बुधवार को अभिजीत वर्जित माना जाता है — इसलिए इस टूल में बुधवार को यह नहीं दिखाया जाता।",
+  note:"नोट: यहाँ सूर्योदय–सूर्यास्त खगोलीय गणना से निकाला गया है। आपके स्थानीय पंचांग से 2–5 मिनट का अंतर हो सकता है। विवाह, गृह-प्रवेश जैसे बड़े शुभ कार्यों के लिए स्थानीय पंचांग / पंडित से पुष्टि ज़रूर करें।",
+  foot:"मुफ़्त हिन्दी + English पंचांग टूल्स",
+  rahuNow:"राहु काल अभी चल रहा है — नया काम शुरू न करें।", rahuLater:"राहु काल आज बाद में आएगा।", rahuDone:"आज का राहु काल बीत चुका है।", rahuOnDay:"इस दिन का",
+  endsIn:"खत्म होने में", startsIn:"शुरू होने में", left:"बाकी",
+  nowNotToday:"आप दूसरी तारीख देख रहे हैं। लाइव चौघड़िया के लिए ‘आज’ खोलें।",
+  nextGoodPrefix:"अगला शुभ चौघड़िया: ",
+  afterGoodPrefix:"इसके बाद अगला शुभ चौघड़िया: ",
+  curGoodNote:"यह शुभ समय है — आज के लिए यही सबसे अच्छा समय है।",
+  daySegment:"दिन", nightSegment:"रात",
+  weekSubPrefix:"— शहर:"
+ }
+};
+
+/* ============ STATE ============ */
+var state = { lang:"en", city:CITIES[0], manualSunrise:null, manualSunset:null };
+var $ = function(id){ return document.getElementById(id); };
+
+function pad(n){ return (n<10?"0":"")+n; }
+function fmtTime(mins){ /* minutes from midnight, may exceed 1440 */
+  var m = ((Math.round(mins)%1440)+1440)%1440;
+  var h = Math.floor(m/60), mm = m%60;
+  var ap = h>=12 ? "PM":"AM"; var h12 = h%12; if(h12===0) h12=12;
+  return h12+":"+pad(mm)+" "+ap;
+}
+function fmtDur(mins){
+  var m = Math.round(mins); var h = Math.floor(m/60), mm = m%60;
+  return h+"h "+pad(mm)+"m";
+}
+function dateStr(d){ return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate()); }
+function parseDateStr(s){ var p=s.split("-"); return new Date(+p[0], +p[1]-1, +p[2]); }
+
+/* ============ SUNRISE / SUNSET (NOAA approx) ============ */
+function sunDecimalHours(dateObj, lat, lon, tz, isSunrise){
+  var rad = Math.PI/180;
+  var start = new Date(dateObj.getFullYear(),0,0);
+  var N = Math.floor((dateObj - start)/86400000);
+  var lngHour = lon/15;
+  var t = N + (((isSunrise?6:18) - lngHour)/24);
+  var M = (0.9856*t) - 3.289;
+  var L = M + (1.916*Math.sin(M*rad)) + (0.020*Math.sin(2*M*rad)) + 282.634;
+  L = ((L%360)+360)%360;
+  var RA = Math.atan(0.91764*Math.tan(L*rad))/rad;
+  RA = ((RA%360)+360)%360;
+  RA = RA + (Math.floor(L/90)*90 - Math.floor(RA/90)*90);
+  RA = RA/15;
+  var sinDec = 0.39782*Math.sin(L*rad);
+  var cosDec = Math.cos(Math.asin(sinDec));
+  var cosH = (Math.cos(90.833*rad) - (sinDec*Math.sin(lat*rad))) / (cosDec*Math.cos(lat*rad));
+  if(cosH>1 || cosH<-1) return null;
+  var H = isSunrise ? (360 - Math.acos(cosH)/rad) : (Math.acos(cosH)/rad);
+  H = H/15;
+  var T = H + RA - (0.06571*t) - 6.622;
+  var UT = T - lngHour;
+  var local = UT + tz;
+  local = ((local%24)+24)%24;
+  return local*60; /* minutes from midnight, city local time */
+}
+function getSun(dateObj, city){
+  var sr = sunDecimalHours(dateObj, city.lat, city.lon, city.tz, true);
+  var ss = sunDecimalHours(dateObj, city.lat, city.lon, city.tz, false);
+  return {sunrise:sr, sunset:ss};
+}
+
+/* ============ RENDER ============ */
+function t(key){ return I18N[state.lang][key] || I18N.en[key] || key; }
+function applyI18n(){
+  var dict = I18N[state.lang];
+  var nodes = document.querySelectorAll("[data-i]");
+  for(var i=0;i<nodes.length;i++){
+    var k = nodes[i].getAttribute("data-i");
+    if(dict[k]) nodes[i].innerHTML = dict[k];
+  }
+  $("langEn").classList.toggle("active", state.lang==="en");
+  $("langHi").classList.toggle("active", state.lang==="hi");
+  document.documentElement.lang = state.lang==="hi" ? "hi" : "en";
+}
+
+function buildRows(tbody, names, startMin, segMin, rahuIdx, nowMin, isToday){
+  var html = "";
+  for(var i=0;i<8;i++){
+    var s = startMin + i*segMin, e = s + segMin;
+    var info = CHOG[names[i]];
+    var isRahu = (rahuIdx === i+1);
+    var isCurrent = isToday && nowMin>=s && nowMin<e;
+    var cls = isRahu ? "rahu-row" : (isCurrent ? "current" : "");
+    var nameDisp = state.lang==="hi" ? (info.hi+" · "+names[i]) : (names[i]+" · "+info.hi);
+    var work = state.lang==="hi" ? info.hiWork : info.en;
+    html += "<tr class='"+cls+"'>"
+      + "<td class='t-time'>"+fmtTime(s)+" – "+fmtTime(e)+(isCurrent?"<br><span class='badge b-neutral'>● LIVE</span>":"")+"</td>"
+      + "<td class='t-name'>"+nameDisp+(isRahu?" <span class='badge b-rahu'>RAHU KAAL</span>":"")+"</td>"
+      + "<td><span class='badge b-"+info.nature+"'>"+NATURE_LABEL[state.lang][info.nature]+"</span></td>"
+      + "<td class='t-work'>"+work+"</td></tr>";
+  }
+  tbody.innerHTML = html;
+}
+
+function render(){
+  applyI18n();
+  var dateVal = $("dateInput").value || dateStr(new Date());
+  var dateObj = parseDateStr(dateVal);
+  var wd = dateObj.getDay();
+  var city = state.city;
+
+  var sun = getSun(dateObj, city);
+  var nextDate = new Date(dateObj); nextDate.setDate(nextDate.getDate()+1);
+  var nextSun = getSun(nextDate, city);
+
+  var sunrise = (state.manualSunrise!==null ? state.manualSunrise : sun.sunrise);
+  var sunset  = (state.manualSunset!==null ? state.manualSunset : sun.sunset);
+  if(sunrise===null || sunset===null){ sunrise = 6*60; sunset = 18*60; }
+  var nextSunrise = nextSun.sunrise!==null ? nextSun.sunrise+1440 : sunrise+1440;
+
+  $("manualSunrise").value = pad(Math.floor(sunrise/60))+":"+pad(Math.round(sunrise%60));
+  $("manualSunset").value  = pad(Math.floor(sunset/60))+":"+pad(Math.round(sunset%60));
+
+  var dayLen = sunset - sunrise;
+  var segDay = dayLen/8;
+  var segNight = (nextSunrise - sunset)/8;
+
+  /* header info */
+  $("dayName").textContent = WEEKDAYS[state.lang][wd]+" · "+(state.lang==="hi" ? WEEKDAYS.en[wd] : WEEKDAYS.hi[wd]);
+  $("dateLine").textContent = dateObj.getDate()+" "+MONTHS[state.lang][dateObj.getMonth()]+" "+dateObj.getFullYear()+" · "+city.n+(state.lang==="hi" ? " ("+city.hi+")" : "")+", "+city.c;
+  $("sunriseOut").textContent = fmtTime(sunrise);
+  $("sunsetOut").textContent = fmtTime(sunset);
+  $("dayLenOut").textContent = fmtDur(dayLen);
+
+  /* Abhijit: ~48 min around solar noon, not on Wednesday */
+  if(wd===3){
+    $("abhijitOut").textContent = state.lang==="hi" ? "बुधवार को वर्जित" : "Avoided on Wednesday";
+  } else {
+    var noon = (sunrise+sunset)/2;
+    $("abhijitOut").textContent = fmtTime(noon-24)+" – "+fmtTime(noon+24);
+  }
+
+  /* Rahu Kaal */
+  var rahuIdx = RAHU_SEG[wd];
+  var rStart = sunrise + (rahuIdx-1)*segDay, rEnd = rStart + segDay;
+  $("rahuTime").textContent = fmtTime(rStart)+" – "+fmtTime(rEnd);
+
+  var todayStr = dateStr(new Date());
+  var isToday = (dateVal === todayStr);
+  var now = new Date();
+  var nowMin = now.getHours()*60 + now.getMinutes() + now.getSeconds()/60;
+
+  if(isToday){
+    if(nowMin>=rStart && nowMin<rEnd){
+      $("rahuStatus").innerHTML = "⚠ "+t("rahuNow")+" <span class='countdown'>("+fmtDur(rEnd-nowMin)+" "+t("left")+")</span>";
+    } else if(nowMin < rStart){
+      $("rahuStatus").textContent = t("rahuLater")+" ("+t("startsIn")+" "+fmtDur(rStart-nowMin)+")";
+    } else {
+      $("rahuStatus").textContent = t("rahuDone");
+    }
+  } else {
+    $("rahuStatus").textContent = t("rahuOnDay")+": "+WEEKDAYS[state.lang][wd]+", "+dateObj.getDate()+" "+MONTHS[state.lang][dateObj.getMonth()];
+  }
+
+  /* tables */
+  var dayNames = DAY_TABLE[wd];
+  var nightNames = NIGHT_TABLE[wd];
+  buildRows($("dayBody"), dayNames, sunrise, segDay, rahuIdx, nowMin, isToday);
+  buildRows($("nightBody"), nightNames, sunset, segNight, -1, (nowMin<sunrise ? nowMin+1440 : nowMin), isToday && (nowMin>=sunset || nowMin<sunrise));
+
+  /* Now card */
+  if(isToday){
+    var curName, curStart, curEnd, periodLabel;
+    if(nowMin>=sunrise && nowMin<sunset){
+      var idx = Math.floor((nowMin-sunrise)/segDay); if(idx>7) idx=7;
+      curName = dayNames[idx]; curStart = sunrise+idx*segDay; curEnd = curStart+segDay; periodLabel = t("daySegment");
+    } else {
+      var nMin = nowMin<sunrise ? nowMin+1440 : nowMin;
+      var nIdx = Math.floor((nMin-sunset)/segNight); if(nIdx>7) nIdx=7; if(nIdx<0) nIdx=0;
+      curName = nightNames[nIdx]; curStart = sunset+nIdx*segNight; curEnd = curStart+segNight; periodLabel = t("nightSegment");
+    }
+    var cInfo = CHOG[curName];
+    $("nowName").innerHTML = (state.lang==="hi" ? cInfo.hi : curName+" · "+cInfo.hi)+" <span class='badge b-"+cInfo.nature+"'>"+NATURE_LABEL[state.lang][cInfo.nature]+"</span>";
+    $("nowDetail").textContent = periodLabel+" · "+fmtTime(curStart)+" – "+fmtTime(curEnd)+" · "+fmtDur(curEnd-(nowMin<sunrise&&curEnd>1440?nowMin+1440:nowMin))+" "+t("left");
+    /* next good */
+    var found = null;
+    var allSegs = [];
+    var i2, s2;
+    for(i2=0;i2<8;i2++) allSegs.push({n:dayNames[i2], s:sunrise+i2*segDay, e:sunrise+(i2+1)*segDay});
+    for(i2=0;i2<8;i2++) allSegs.push({n:nightNames[i2], s:sunset+i2*segNight, e:sunset+(i2+1)*segNight});
+    var cmpNow = nowMin<sunrise ? nowMin+1440 : nowMin;
+    var curNat = CHOG[curName].nature;
+    var curIsGood = (curNat==="good"||curNat==="best");
+    for(i2=0;i2<allSegs.length;i2++){
+      var sg = allSegs[i2]; var nat = CHOG[sg.n].nature;
+      if(!(nat==="good"||nat==="best")) continue;
+      if(curIsGood){ if(sg.s>=curEnd-1){ found = sg; break; } }
+      else if(sg.e>cmpNow){ found = sg; break; }
+    }
+    if(found){
+      var lbl = curIsGood ? t("afterGoodPrefix") : t("nextGoodPrefix");
+      $("nextGood").textContent = lbl+(state.lang==="hi"?CHOG[found.n].hi:found.n)+" — "+fmtTime(found.s)+" – "+fmtTime(found.e);
+    } else if(curIsGood){
+      $("nextGood").textContent = t("curGoodNote");
+    } else {
+      $("nextGood").textContent = "";
+    }
+  } else {
+    $("nowName").textContent = "—";
+    $("nowDetail").textContent = t("nowNotToday");
+    $("nextGood").textContent = "";
+  }
+
+  /* week table */
+  $("weekSub").textContent = t("weekSubPrefix")+" "+city.n+", "+city.c;
+  var whtml = "";
+  for(var d=0; d<7; d++){
+    var dd = new Date(dateObj); dd.setDate(dd.getDate()+d);
+    var w = dd.getDay();
+    var s7 = getSun(dd, city);
+    var sr7 = s7.sunrise!==null ? s7.sunrise : 360, ss7 = s7.sunset!==null ? s7.sunset : 1080;
+    var seg7 = (ss7-sr7)/8, ri = RAHU_SEG[w];
+    var rs = sr7+(ri-1)*seg7, re = rs+seg7;
+    var isT = dateStr(dd)===todayStr;
+    whtml += "<tr"+(isT?" class='current'":"")+"><td>"+WEEKDAYS[state.lang][w]+(isT?" ●":"")+"</td><td>"+dd.getDate()+" "+MONTHS[state.lang][dd.getMonth()]+"</td><td class='t-time' style='color:var(--maroon);font-weight:800'>"+fmtTime(rs)+" – "+fmtTime(re)+"</td><td>"+fmtTime(sr7)+"</td></tr>";
+  }
+  $("weekBody").innerHTML = whtml;
+
+  /* legend */
+  var order = ["Amrit","Shubh","Labh","Char","Udveg","Kaal","Rog"];
+  var lhtml = "";
+  for(var j=0;j<order.length;j++){
+    var nm = order[j], inf = CHOG[nm];
+    lhtml += "<div class='card'><h3>"+(state.lang==="hi"?inf.hi+" · "+nm:nm+" · "+inf.hi)+" <span class='badge b-"+inf.nature+"'>"+NATURE_LABEL[state.lang][inf.nature]+"</span></h3><p class='small muted' style='margin:0'>"+(state.lang==="hi"?inf.hiWork:inf.en)+"</p></div>";
+  }
+  $("legend").innerHTML = lhtml;
+}
+
+/* ============ CITY SEARCH ============ */
+function renderCityList(filter){
+  var list = $("cityList");
+  var f = (filter||"").toLowerCase().trim();
+  var matches = CITIES.filter(function(c){
+    return !f || c.n.toLowerCase().indexOf(f)>-1 || c.hi.indexOf(f)>-1 || c.c.toLowerCase().indexOf(f)>-1;
+  }).slice(0,12);
+  if(!matches.length){ list.innerHTML = "<button type='button' disabled>No city found · शहर नहीं मिला</button>"; list.classList.add("open"); return; }
+  list.innerHTML = "";
+  matches.forEach(function(c){
+    var b = document.createElement("button");
+    b.type = "button";
+    b.innerHTML = "<span><b>"+c.n+"</b> · "+c.hi+"</span><small>"+c.c+"</small>";
+    b.addEventListener("click", function(){
+      state.city = c; state.manualSunrise = null; state.manualSunset = null;
+      $("cityInput").value = c.n+", "+c.c;
+      list.classList.remove("open");
+      render();
+    });
+    list.appendChild(b);
+  });
+  list.classList.add("open");
+}
+$("cityInput").addEventListener("focus", function(){ renderCityList(this.value==="Delhi, India" ? "" : this.value); });
+$("cityInput").addEventListener("input", function(){ renderCityList(this.value); });
+document.addEventListener("click", function(e){
+  if(!e.target.closest(".city-wrap")) $("cityList").classList.remove("open");
+});
+
+/* ============ EVENTS ============ */
+$("dateInput").addEventListener("change", function(){
+  state.manualSunrise = null; state.manualSunset = null;
+  document.querySelectorAll(".quick-dates button").forEach(function(b){ b.classList.remove("active"); });
+  render();
+});
+document.querySelectorAll(".quick-dates button").forEach(function(b){
+  b.addEventListener("click", function(){
+    document.querySelectorAll(".quick-dates button").forEach(function(x){ x.classList.remove("active"); });
+    b.classList.add("active");
+    var d = new Date(); d.setDate(d.getDate()+parseInt(b.getAttribute("data-offset"),10));
+    $("dateInput").value = dateStr(d);
+    state.manualSunrise = null; state.manualSunset = null;
+    render();
+  });
+});
+$("langEn").addEventListener("click", function(){ state.lang="en"; render(); });
+$("langHi").addEventListener("click", function(){ state.lang="hi"; render(); });
+$("applyManual").addEventListener("click", function(){
+  var sr = $("manualSunrise").value, ss = $("manualSunset").value;
+  if(sr){ var p=sr.split(":"); state.manualSunrise = (+p[0])*60+(+p[1]); }
+  if(ss){ var q=ss.split(":"); state.manualSunset = (+q[0])*60+(+q[1]); }
+  render();
+});
+$("resetManual").addEventListener("click", function(){ state.manualSunrise=null; state.manualSunset=null; render(); });
+
+/* init */
+$("dateInput").value = dateStr(new Date());
+render();
+setInterval(render, 60000);
+</script>
+<!-- Gmail signup — Good Morning Kids email list (email-link verified) -->
+<section id="gmk-email-signup" style="max-width:640px;margin:28px auto 0;padding:20px 16px;text-align:center;border-top:2px dashed #f0c040;">
+<h3 style="margin:0 0 6px;font-size:18px;">Apna Gmail daalo — verify karo, naye free tools aur updates ki khabar pao</h3>
+<p style="margin:0 0 12px;color:#666;font-size:14px;">Hum aapke Gmail par ek verification link bhejenge. Link par click karte hi aapka email save ho jayega. Koi spam nahi.</p>
+<form id="gmkEmailForm" style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+<input id="gmkEmailInput" type="email" required placeholder="aapka@gmail.com" style="flex:1;min-width:220px;max-width:320px;padding:10px 12px;font-size:15px;border:1px solid #ccc;border-radius:8px;" />
+<button type="submit" style="padding:10px 18px;font-size:15px;background:#f59e0b;color:#fff;border:none;border-radius:8px;cursor:pointer;">Verification Link Bhejo</button>
+</form>
+<p id="gmkEmailMsg" style="margin:10px 0 0;font-size:14px;min-height:20px;"></p>
+</section>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+(function(){
+var TOOL_NAME = "rahu-kaal-choghadiya";
+var TOOL_URL = "https://abcd842323-spec.github.io/rahu-kaal-choghadiya/";
+var form = document.getElementById("gmkEmailForm");
+var input = document.getElementById("gmkEmailInput");
+var msg = document.getElementById("gmkEmailMsg");
+var fbDb = null;
+function show(color, text){ msg.style.color = color; msg.textContent = text; }
+function initFb(){
+if (typeof firebase === "undefined") return false;
+if (!firebase.apps || !firebase.apps.length) {
+firebase.initializeApp({apiKey:"AIzaSyBwPT-AfPvxH3AbEJ8IMPDVFwieZfvv-yg",authDomain:"good-morning-kids-17b08.firebaseapp.com",projectId:"good-morning-kids-17b08",storageBucket:"good-morning-kids-17b08.firebasestorage.app",messagingSenderId:"805083378699",appId:"1:805083378699:web:a904d43f2cd2933aedc30e"});
+}
+fbDb = firebase.firestore();
+return true;
+}
+function handleEmailLink(){
+if (typeof firebase === "undefined") return;
+if (!firebase.auth().isSignInWithEmailLink(window.location.href)) return;
+var email = window.localStorage.getItem("gmkEmailForSignIn");
+if (!email) {
+email = window.prompt("Verification ke liye apna Gmail dobara daalo:");
+if (!email) return;
+}
+if (!initFb()) { show("#c00", "Verify nahi ho paya — internet check karke dobara try karo."); return; }
+firebase.auth().signInWithEmailLink(email, window.location.href).then(function(){
+window.localStorage.removeItem("gmkEmailForSignIn");
+return fbDb.collection("toolEmails").add({email: email.trim().toLowerCase(), tool: TOOL_NAME, verified: true, createdAt: firebase.firestore.FieldValue.serverTimestamp()});
+}).then(function(){
+show("green", "Gmail verify ho gaya, dhanyavaad! \u2713");
+if (form) form.querySelector("button").disabled = true;
+}).catch(function(){
+show("#c00", "Verification link kaam nahi kar raha — naya link mangne ke liye dobara Gmail daalo.");
+});
+}
+form.addEventListener("submit", function(e){
+e.preventDefault();
+var email = input.value.trim().toLowerCase();
+if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { show("#c00", "Sahi Gmail daalo — jaise aapka@gmail.com"); return; }
+show("#666", "Verification link bhej rahe hain…");
+if (!initFb()) { show("#c00", "Abhi link nahi bhej paye — internet check karke dobara try karo."); return; }
+var actionCodeSettings = { url: TOOL_URL, handleCodeInApp: true };
+firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings).then(function(){
+window.localStorage.setItem("gmkEmailForSignIn", email);
+show("green", "Verification link bhej diya! Apne Gmail me link kholo aur verify karo — tabhi aapka email save hoga.");
+form.querySelector("button").disabled = true;
+}).catch(function(){
+show("#c00", "Link nahi bhej paye — dobara try karo.");
+});
+});
+if (document.readyState === "loading") {
+document.addEventListener("DOMContentLoaded", handleEmailLink);
+} else {
+handleEmailLink();
+}
+})();
+</script>
+
+
+<div style="text-align:center;padding:18px 12px 28px;color:#666;font-size:14px;">By Mahesh Kumar</div>
+
+<!-- Adsterra ads (GitHub Pages site 6231775) -->
+<script async fetchpriority="high" data-cfasync="false" src="https://bauval.org/21/f2aab14137246b166ffab0c2f48eb225"></script>
+<div id="container-f2aab14137246b166ffab0c2f48eb225"></div>
+<script data-cfasync="false" src="https://bauval.org/14/b26c99f8ab4002c619dc2e982f8e61aa"></script>
+</body>
+</html>
